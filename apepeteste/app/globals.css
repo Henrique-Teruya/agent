@@ -1,22 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #434346;
+  --foreground: #fefefe;
+  --canvas: #434346;
+  --canvas-deep: #3a3a3d;
+  --surface-card: #4d4d50;
+  --surface-card-elevated: #555558;
+  --surface-strong: #5e5e61;
+  --hairline: #5a5a5d;
+  --hairline-strong: #666669;
+  --primary: #fee250;
+  --primary-active: #e6cc30;
+  --primary-glow: #fff070;
+  --body-text: #b8b8bb;
+  --muted: #99999c;
+  --semantic-success: #33d17a;
+  --semantic-error: #ff4d4d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-canvas-deep: var(--canvas-deep);
+  --color-surface-card: var(--surface-card);
+  --color-surface-card-elevated: var(--surface-card-elevated);
+  --color-surface-strong: var(--surface-strong);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-primary-glow: var(--primary-glow);
+  --color-body-text: var(--body-text);
+  --color-muted: var(--muted);
+  --color-semantic-success: var(--semantic-success);
+  --color-semantic-error: var(--semantic-error);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

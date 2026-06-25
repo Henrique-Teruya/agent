@@ -3,7 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Settings, Activity } from "lucide-react";
+import { LayoutDashboard, BarChart3 } from "lucide-react";
 
 export default function DashboardLayout({
   children,
@@ -14,26 +14,20 @@ export default function DashboardLayout({
 
   const navItems = [
     { name: "Rotinas", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Configurações", href: "/dashboard/configuracoes", icon: Settings },
+    { name: "Relatórios", href: "/dashboard/relatorios", icon: BarChart3 },
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#434346] text-[#fefefe] flex font-sans selection:bg-[#fee250]/30">
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#fee250]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#fee250]/5 rounded-full blur-[120px]" />
       </div>
 
       {/* Sidebar */}
-      <aside className="relative z-10 w-72 border-r border-white/5 bg-black/40 backdrop-blur-xl flex flex-col">
-        <div className="p-8 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-            <Activity className="text-white w-5 h-5" />
-          </div>
-          <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">
-            Nexus
-          </span>
+      <aside className="relative z-10 w-72 border-r border-[#5a5a5d] bg-[#3a3a3d]/60 backdrop-blur-xl flex flex-col">
+        <div className="p-6 pb-2">
         </div>
 
         <nav className="flex-1 px-4 space-y-2">
@@ -43,10 +37,10 @@ export default function DashboardLayout({
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 group ${
                   isActive
-                    ? "bg-white/10 text-white shadow-sm border border-white/10"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent"
+                    ? "bg-[#fee250]/10 text-[#fee250] border border-[#fee250]/20"
+                    : "text-[#b8b8bb] hover:text-[#fefefe] hover:bg-[#555558] border border-transparent"
                 }`}
               >
                 <item.icon
@@ -60,29 +54,17 @@ export default function DashboardLayout({
           })}
         </nav>
 
-        <div className="p-4 mt-auto">
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "w-10 h-10 shadow-md",
-                },
-              }}
-            />
-            <div className="flex flex-col">
-              <span className="text-sm font-medium text-zinc-200">Minha Conta</span>
-              <span className="text-xs text-zinc-500">Gerenciar perfil</span>
-            </div>
-          </div>
-        </div>
+
       </aside>
 
       {/* Main Content */}
-      <main className="relative z-10 flex-1 overflow-y-auto">
-        <div className="max-w-6xl mx-auto p-10">
-          {children}
-        </div>
-      </main>
+      <div className="relative z-10 flex-1 flex flex-col">
+        <main className="flex-1 overflow-y-auto">
+          <div className="max-w-6xl mx-auto p-10">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
