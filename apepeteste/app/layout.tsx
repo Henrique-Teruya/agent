@@ -1,3 +1,5 @@
+import Image from "next/image";
+import logoImage from "../assets/Gemini_Generated_Image_35aj7235aj7235aj-removebg-preview.png";
 import {ClerkProvider, Show, SignInButton, SignUpButton, UserButton} from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -31,7 +33,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ClerkProvider>
           <header className="flex h-16 items-center justify-between border-b border-[#5a5a5d] px-4">
-            <span className="text-[#fefefe] font-bold text-base tracking-tight">Apepê Control</span>
+        <Image src={logoImage} alt="Apepê Control" width={120} height={32} className="h-8 w-auto" /> 
             <div className="flex items-center gap-4">
               <Show when="signed-out">
                 <SignInButton />
